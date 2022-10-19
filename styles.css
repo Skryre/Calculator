@@ -1,0 +1,160 @@
+/*16 or 13*/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Silkscreen&display=swap');
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #2c3531;
+    color:#ffcb91;
+    height: 100vh;
+    position: relative;
+    margin: 0px;
+    top: 0;
+    display: flex;
+    margin-top: auto;
+    align-items: center;
+    flex-direction: column;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 55px;
+}
+
+footer i {
+    transition: 0.5s;
+    margin-left: 15px;
+}
+
+footer i:hover {
+    transform: scale(1.2);
+}
+
+.grandparent {
+    background-color: #919191;
+    width: 530px;
+    height: 650px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 23px;
+    border: solid black 3px;
+}
+
+.parent {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    width: 480px;
+    height: 600px;
+    border-radius: 20px;
+}
+
+.parent > div {
+    border-radius: 10px;
+    border: solid black 2px;
+    color: black;
+    font-size: 30px;
+    display: flex;
+    font-weight: bold;
+    justify-content: center;
+    align-items: center;
+} 
+    
+.div1 { 
+    grid-area: 1 / 1 / 3 / 5; 
+    background-color: rgb(206, 206, 206);
+}
+.div2 { 
+    grid-area: 3 / 1 / 4 / 3; 
+    background-color: #c96567;
+}
+.div3 { 
+    grid-area: 3 / 3 / 4 / 5;
+    background-color: #2c5b87;
+}
+.div4 { 
+    grid-area: 4 / 1 / 5 / 2; 
+    background-color: rgb(206, 206, 206);
+}
+.div5 { 
+    grid-area: 4 / 2 / 5 / 3; 
+    background-color: rgb(206, 206, 206);
+}
+.div6 { 
+    grid-area: 4 / 3 / 5 / 4;
+    background-color: rgb(206, 206, 206);
+}
+.div7 { 
+    grid-area: 4 / 4 / 5 / 5;
+    background-color: rgb(206, 206, 206);
+}
+.div8 { 
+    grid-area: 5 / 1 / 6 / 2;
+    background-color: rgb(206, 206, 206);
+}
+.div9 { 
+    grid-area: 5 / 2 / 6 / 3;
+    background-color: rgb(206, 206, 206);
+}
+.div10 { 
+    grid-area: 5 / 3 / 6 / 4;
+    background-color: rgb(206, 206, 206);
+}
+.div11 { 
+    grid-area: 5 / 4 / 6 / 5; 
+    background-color: rgb(206, 206, 206);
+}
+.div12 { 
+    grid-area: 6 / 1 / 7 / 2; 
+    background-color: rgb(206, 206, 206);
+}
+.div13 { 
+    grid-area: 6 / 2 / 7 / 3;
+    background-color: rgb(206, 206, 206);
+}
+.div14 { 
+    grid-area: 6 / 3 / 7 / 4;
+    background-color: rgb(206, 206, 206);
+}
+.div15 { 
+    background-color: rgb(206, 206, 206);
+    grid-area: 6 / 4 / 7 / 5; 
+}
+.div16 { 
+    grid-area: 7 / 1 / 8 / 2; 
+    background-color: rgb(206, 206, 206);
+}
+.div17 { 
+    grid-area: 7 / 2 / 8 / 3; 
+    background-color: rgb(206, 206, 206);
+}
+.div18 { 
+    grid-area: 7 / 3 / 8 / 4; 
+    background-color: rgb(206, 206, 206);
+}
+.div19 { 
+    grid-area: 7 / 4 / 8 / 5; 
+    background-color: rgb(206, 206, 206);
+}
+
+header h1 {
+    font-family: 'Silkscreen', cursive;
+    font-size: 45px;
+    margin: 0px;
+}
+
+header {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
