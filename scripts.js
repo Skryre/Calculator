@@ -30,7 +30,7 @@ operators.forEach(function(element){
         else {
             secondElement = displayValue;
             displayValue = operate(firstElement, secondElement, operatorElement)
-                if (displayValue = 'no') {
+                if (displayValue === 'no') {
                     return cancel ()
                 }
                 else {
@@ -45,6 +45,22 @@ operators.forEach(function(element){
         }
     });
 });
+
+equal.addEventListener(`click`, () => {
+    secondElement = displayValue;
+    displayValue = operate(firstElement, secondElement, operatorElement)
+        if (displayValue === 'no') {
+            return cancel ()
+        }
+        else {
+            playdis.innerHTML = display.innerHTML;
+            display.innerHTML = displayValue;
+            operatorElement = '';
+            firstElement = displayValue;
+            secondElement = '';
+            return displayValue = '';
+        }
+})
 
 ac.addEventListener(`click`, () => cancel ());
 
