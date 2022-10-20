@@ -28,6 +28,10 @@ operators.forEach(function(element){
             operatorElement = e.target.innerText;
             return displayValue = '';
         }
+        else if (firstElement !== '' && operatorElement === ''){
+            display.innerHTML += e.target.innerText;
+            return operatorElement = e.target.innerText;
+        }
         else {
             secondElement = displayValue;
             displayValue = operate(firstElement, secondElement, operatorElement)
