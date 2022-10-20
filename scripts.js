@@ -4,14 +4,11 @@ const del = document.querySelector('.del');
 const equal = document.querySelector('#equal');
 const ac = document.querySelector('#ac');
 const display = document.querySelector('.current-operand');
+const playdis = document.querySelector('.previous-operand');
 let displayValue = '';
-
-
-//for (let i = 0; i < buttons.length; i++) {
-//    buttons[i].addEventListener("click", function() {
-//      display.innerHTML += this.innerText;
-//    });
-//};
+let firstElement = '';
+let operatorElement = '';
+let secondElement = '';
 
 buttons.forEach( function(element){
     element.addEventListener(`click`,function(e){
@@ -22,17 +19,50 @@ buttons.forEach( function(element){
     });
 });
 
+operators.forEach(function(element){
+    element.addEventListener(`click`, function(e){
+        if (firstElement === ''){
+            firstElement = displayValue;
+            display.innerHTML += e.target.innerText;
+            operatorElement = e.target.innerText;
+            return displayValue = '';
+        }
+        else {
+            secondElement = displayValue;
+            displayValue = operate(firstElement, secondElement, operatorElement)
+                if (displayValue = 'no') {
+                    return cancel ()
+                }
+                else {
+                    playdis.innerHTML = display.innerHTML;
+                    display.innerHTML = displayValue;
+                    display.innerHTML += e.target.innerText;
+                    operatorElement = e.target.innerText;
+                    firstElement = displayValue;
+                    secondElement = '';
+                    return displayValue = '';
+                }
+        }
+    });
+});
 
-ac.addEventListener(`click`, ()=> 
-    display.innerHTML = '',
-);
+ac.addEventListener(`click`, () => cancel ());
 
-del.addEventListener(`click`, ()=>
+function cancel () {
+    displayValue = '';
+    firstElement = '';
+    operatorElement = '';
+    secondElement = '';
+    display.innerHTML = '';
+    playdis.innerHTML = '';
+}
+
+del.addEventListener(`click`, () => {
     console.log(displayValue)
-);
+});
 
 function add (x, y){
-    return x+y;
+    return ((x*1) + (y*1));
 }
 
 function sub (x, y){
@@ -56,12 +86,13 @@ function operate (x, y, z) {
         return sub(x, y)
     }
 
-    else if (z === '*')
-    return mult(x,y)
-    
+    else if (z === '*') {
+        return mult(x,y)
+    }
+
     else if (z === '/') {
         if (x === 0 || y === 0){
-            return 'naaaaahhhhh'
+            return 'no'
         }
         else {
             return divi(x, y)
