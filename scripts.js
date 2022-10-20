@@ -5,6 +5,7 @@ const equal = document.querySelector('#equal');
 const ac = document.querySelector('#ac');
 const display = document.querySelector('.current-operand');
 const playdis = document.querySelector('.previous-operand');
+const point = document.querySelector('.point');
 let displayValue = '';
 let firstElement = '';
 let operatorElement = '';
@@ -46,6 +47,30 @@ operators.forEach(function(element){
     });
 });
 
+del.addEventListener(`click`, () => {
+    display.innerHTML = display.innerHTML
+    .toString()
+    .slice(0, -1);
+    displayValue = displayValue
+    .toString()
+    .slice(0, -1);
+})
+
+point.addEventListener(`click`, () => {
+    if (displayValue === '') {
+        display.innerHTML += '0.'
+        return displayValue += '0.'
+    }
+    if (displayValue.includes('.')){
+        display.innerHTML += ''
+        return displayValue += ''
+    }
+    else {
+        display.innerHTML += '.'
+        return displayValue += '.'
+    }
+})
+
 equal.addEventListener(`click`, () => {
     secondElement = displayValue;
     displayValue = operate(firstElement, secondElement, operatorElement)
@@ -72,10 +97,6 @@ function cancel () {
     display.innerHTML = '';
     playdis.innerHTML = '';
 }
-
-del.addEventListener(`click`, () => {
-    console.log(displayValue)
-});
 
 function add (x, y){
     return ((x*1) + (y*1));
@@ -111,7 +132,8 @@ function operate (x, y, z) {
             return 'no'
         }
         else {
-            return divi(x, y)
+            let du = divi(x, y)
+            return du.toFixed(2)
         }
     }
 }
