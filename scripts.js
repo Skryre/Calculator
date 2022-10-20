@@ -1,16 +1,35 @@
-const buttons = document.querySelectorAll('button');
+const buttons = document.querySelectorAll('.digits');
+const operators = document.querySelectorAll('.operator');
+const del = document.querySelector('.del');
+const equal = document.querySelector('#equal');
+const ac = document.querySelector('#ac');
+const display = document.querySelector('.current-operand');
+let displayValue = '';
+
+
+//for (let i = 0; i < buttons.length; i++) {
+//    buttons[i].addEventListener("click", function() {
+//      display.innerHTML += this.innerText;
+//    });
+//};
 
 buttons.forEach( function(element){
     element.addEventListener(`click`,function(e){
-        console.log(e.target.innerText);
+        display.innerHTML += e.target.innerText;
+        displayValue += e.target.innerText;
+        console.log(displayValue)
+        return displayValue
     });
 });
 
-function sum (array) {
-	return array.reduce((sum, numbers) => {
-    return sum + numbers;
-  }, 0);
-};
+
+ac.addEventListener(`click`, ()=> 
+    display.innerHTML = '',
+);
+
+del.addEventListener(`click`, ()=>
+    console.log(displayValue)
+);
 
 function add (x, y){
     return x+y;
@@ -28,43 +47,24 @@ function divi (x, y){
     return x/y;
 }
 
-function subtract (array) {
-	return array.reduce((sum, numbers) => {
-    return sum - numbers;
-  }, 0);
-};
-
-function multiply (array) {
-    return array.reduce((mult, numbers) => {
-      return mult * numbers;
-}, 1);
-};
-
-function divide (array) {
-    return array.reduce((divi, numbers) => {
-      return divi / numbers;
-}, 1);
-};
-
 function operate (x, y, z) {
     if (z === '+') {
-        add(x, y)
+        return add(x, y)
     }
 
     else if (z === '-') {
-        sub(x, y)
+        return sub(x, y)
     }
 
     else if (z === '*')
-        mult(x,y)
+    return mult(x,y)
     
     else if (z === '/') {
         if (x === 0 || y === 0){
             return 'naaaaahhhhh'
         }
         else {
-            divi(x, y)
+            return divi(x, y)
         }
     }
 }
-
