@@ -7,6 +7,7 @@ body {
     display: flex;
     align-items: center;
     flex-direction: column;
+    font-size: 23px;
 }
 
 footer {
@@ -83,12 +84,6 @@ header p {
     margin: 0px;
 }
 
-.output .previousOperand {
-color: #2c3531;
-font-size: 1.3rem;
-}
-
-.output .currentOperand {
-color: black;
-font-size: 2.3rem;
+.output{
+    color: black;
 }
