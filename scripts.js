@@ -84,6 +84,11 @@ point.addEventListener(`click`, () => {
 
 equal.addEventListener(`click`, () => {
     secondElement = displayValue;
+    if (secondElement ===  ''){
+        display.innerHTML += ''
+        return displayValue += ''
+    }
+    else {
     displayValue = operate(firstElement, secondElement, operatorElement)
         if (displayValue === 'no') {
             return cancel ()
@@ -96,6 +101,7 @@ equal.addEventListener(`click`, () => {
             secondElement = '';
             return displayValue = '';
         }
+    }
 })
 
 ac.addEventListener(`click`, () => cancel ());
