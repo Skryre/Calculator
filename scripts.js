@@ -12,7 +12,7 @@ let operatorElement = '';
 let secondElement = '';
 
 buttons.forEach( function(element){
-    element.addEventListener(`click`,function(e){ //I NEED TO ADD A CONDITIONAL FOR AFTER =
+    element.addEventListener(`click`,function(e){
         if (firstElement !== '' && operatorElement === ''){
             display.innerHTML += '+'
             operatorElement = '+'
