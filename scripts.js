@@ -12,11 +12,18 @@ let operatorElement = '';
 let secondElement = '';
 
 buttons.forEach( function(element){
-    element.addEventListener(`click`,function(e){
+    element.addEventListener(`click`,function(e){ //I NEED TO ADD A CONDITIONAL FOR AFTER =
+        if (firstElement !== '' && operatorElement === ''){
+            display.innerHTML += '+'
+            operatorElement = '+'
+            display.innerHTML += e.target.innerText;
+            displayValue += e.target.innerText;
+        }
+        else {
         display.innerHTML += e.target.innerText;
         displayValue += e.target.innerText;
         console.log(displayValue)
-        return displayValue
+        return displayValue}
     });
 });
 
