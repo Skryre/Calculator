@@ -29,7 +29,10 @@ buttons.forEach( function(element){
 
 operators.forEach(function(element){
     element.addEventListener(`click`, function(e){
-        if (firstElement === ''){
+        if (displayValue === '') {
+            return
+        }
+        else if (firstElement === ''){
             firstElement = displayValue;
             display.innerHTML += e.target.innerText;
             operatorElement = e.target.innerText;
