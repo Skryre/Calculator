@@ -30,7 +30,13 @@ buttons.forEach( function(element){
 operators.forEach(function(element){
     element.addEventListener(`click`, function(e){
         if (displayValue === '') {
-            return
+            if (playdis.innerHTML !== ''){
+                display.innerHTML += e.target.innerText;
+                return operatorElement = e.target.innerText;
+            }
+            else {
+                return
+            }
         }
         else if (firstElement === ''){
             firstElement = displayValue;
@@ -75,7 +81,7 @@ point.addEventListener(`click`, () => {
         display.innerHTML += '0.'
         return displayValue += '0.'
     }
-    if (displayValue.includes('.')){
+    else if (displayValue.includes('.')){
         display.innerHTML += ''
         return displayValue += ''
     }
@@ -118,33 +124,17 @@ function cancel () {
     playdis.innerHTML = '';
 }
 
-function add (x, y){
-    return ((x*1) + (y*1));
-}
-
-function sub (x, y){
-    return x-y;
-}
-
-function mult (x, y){
-    return x*y;
-}
-
-function divi (x, y){
-    return x/y;
-}
-
 function operate (x, y, z) {
     if (z === '+') {
-        return add(x, y)
+        return calculator.add(x, y)
     }
 
     else if (z === '-') {
-        return sub(x, y)
+        return calculator.sub(x, y)
     }
 
     else if (z === '*') {
-        return mult(x,y)
+        return calculator.mul(x,y)
     }
 
     else if (z === '/') {
@@ -152,8 +142,21 @@ function operate (x, y, z) {
             return 'no'
         }
         else {
-            let du = divi(x, y)
-            return du.toFixed(2)
+            let division = calculator.div(x, y)
+            return division.toFixed(2)
         }
     }
 }
+
+const calculator = (() => {
+    const add = (x, y) => x * 1 + y * 1;
+    const sub = (x, y) => x - y;
+    const mul = (x, y) => x * y;
+    const div = (x, y) => x / y;
+    return {
+      add,
+      sub,
+      mul,
+      div,
+    };
+  })();
